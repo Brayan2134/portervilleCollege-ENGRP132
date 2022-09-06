@@ -30,16 +30,13 @@
 # ---------------
 # .only way to break program is to have no root between a and b (includes non-real roots)#
 
+from tkinter import E
+
 TOLERANCE_AS_DIGITS = 4 # Tolerance level in digit form (e.g: 0.001 has 3 digit levels)
 TOLERANCE = (10 ** -4) # Tolerance Level for program (can be changed)
 
-# f(x) for Algorithm
-def polynomialFunction (x):
-    return ((x ** 2) - 8) # POLYNOMIAL FUNCTION GOES HERE. CHANGE THIS TO CHANGE FUNCTION
-
-
 # Main program to run the Bisection Method Algorithm
-def bisectionMethodProgram(init_a, init_b):
+def bisectionMethodProgram(init_a, init_b, EQUATION):
     a = init_a # Left Endpoint (x-axis value)
     f_of_a = 0 # Left Endpoint (y-axis value)
 
@@ -53,8 +50,10 @@ def bisectionMethodProgram(init_a, init_b):
     #print("Init guess a: ", init_a, " Init guess b: ", init_b, " Init midpoint: ", midpoint)
 
     while ((abs(f_of_b-f_of_a) > TOLERANCE) or (f_of_b - f_of_a == 0)):
-        f_of_a = polynomialFunction(a)
-        f_of_b = polynomialFunction(b)
+        f_of_a = eval(f"{EQUATION}", {"x" : a})
+        f_of_b = eval(f"{EQUATION}", {"x" : b})
+
+        print(a, " a is: ", f_of_a)
 
         # If both of the y-values are negative or positive
         # on (a,b), then there cannot be a root in-between them.
@@ -69,7 +68,7 @@ def bisectionMethodProgram(init_a, init_b):
         # Finally, replace a or b with the midpoint
         # Note: When replacing a or b, the signs must correspond.
         midpoint = (a + b) / 2
-        f_of_midpoint = polynomialFunction(midpoint)
+        f_of_midpoint = eval(f"{EQUATION}", {"x" : midpoint})
 
         print("f(a): ", f_of_a, " f(b): ", f_of_b, "f(midpoint): ", f_of_midpoint)
 
@@ -92,7 +91,7 @@ def bisectionMethodProgram(init_a, init_b):
         print(" Current a: ", a," Current b: ", b," Current midpoint: ", midpoint, "Current f(midpoint): ", f_of_midpoint)
 
 
-    print("After running this program, we can safely assume that the midpoint of the function is: ", round(midpoint, TOLERANCE_AS_DIGITS))
+    print("\nAfter running this program, we can safely assume that the midpoint of the function is: ", round(midpoint, TOLERANCE_AS_DIGITS))
     print("-----------")
     print("It is within ", TOLERANCE, " of the actual result.")
 
@@ -104,10 +103,10 @@ def main():
     print("Hello and welcome to root finding generator using Bisection Method Algorithm")
 
     # Init guesses for both endpoints
+    EQUATION = input("Enter an equation (note raising to a power is ** NOT ^): ")
     INIT_GUESS_A = eval(input("What is your initial guess for the left endpoint? (a): "))
     INIT_GUESS_B = eval(input("What is your initial guess for the left endpoint? (b): "))
-
-    bisectionMethodProgram(INIT_GUESS_A, INIT_GUESS_B)
+    bisectionMethodProgram(INIT_GUESS_A, INIT_GUESS_B, EQUATION)
 
 
 #-------------------------
