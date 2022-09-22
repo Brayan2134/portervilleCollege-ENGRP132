@@ -50,22 +50,22 @@ def russianPearentMult():
     # Double the previous number depending on how many iterations there are
     lenColumn = len(havingColumn)
 
-    for i in range (1, lenColumn + 1, 1):
-        temp = doublingColumn[i-1] * 2
+    for i in range (1, (int(lenColumn) + 1), 1):
+        temp = (doublingColumn[i-1])
+        temp = temp * 2
         doublingColumn.insert(i, int(temp))
 
     print(doublingColumn)
-
+    print(havingColumn)
     # Check halving column to see if the number is divisable by 2
     # IF so, delete it
-    lol = 0
-    for t in range(0, lenColumn + 1, 1):
-        hehe = t
-        lol = havingColumn[hehe]
 
-        if (int(lol) == 0):
-            havingColumn[t] = 0
-            doublingColumn[t] = 0
+    for i in range(0, (int(lenColumn) + 1), 1):
+        havingColumnValue = int(havingColumn[i])
+
+        if (havingColumnValue == 0):
+            havingColumn[i] = 0
+            doublingColumn[i] = 0
 
     print(doublingColumn)
 

@@ -30,7 +30,7 @@
 # ---------------
 # .only way to break program is to have no root between a and b (includes non-real roots)#
 
-from tkinter import E
+from tkinter import E # For tests and bug testing
 
 TOLERANCE_AS_DIGITS = 4 # Tolerance level in digit form (e.g: 0.001 has 3 digit levels)
 TOLERANCE = (10 ** -4) # Tolerance Level for program (can be changed)
@@ -81,10 +81,22 @@ def bisectionMethodProgram(init_a, init_b, EQUATION):
         elif (f_of_midpoint > 0) and (f_of_b > 0):
             b = midpoint
 
-        elif (f_of_midpoint > 0) and (f_of_a > f_of_midpoint):
-            a = midpoint
-        elif (f_of_midpoint < 0) and (f_of_midpoint > f_of_b):
-            b = midpoint
+       #----------------------------
+       # IMPORTANT
+       # INFORMATION
+       # BELOW (work in progress!!!):
+       # 
+       # If the program is not running as expected when it comes to roots (its stuck in an infite loop),
+       # and we know the root is real, this function below here is the culperit.
+       # 
+       # The goal of this function is to find roots at x = 0 
+       # It's been tested, but not extensivly, so this may break program#
+       #----------------------------
+       #
+       # elif (f_of_midpoint > 0) and (f_of_a > f_of_midpoint):
+       #    a = midpoint
+       # elif (f_of_midpoint < 0) and (f_of_midpoint > f_of_b):
+       #    b = midpoint
         else:
             print("Something went wrong...")
     
