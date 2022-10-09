@@ -1,45 +1,65 @@
-
-/**
- * --------------------------------------
- * -------- READ ME!!!!!!!!!!!!!!! ------
- * --------------------------------------
- *  document.getElementById("window_screen_1").style.visibility = "none"; // Remove introduction Div, and begin game.
- * 
- * THIS WORT OF WORKS. WE WANT IT TO BE HIDDEN WHEN APP STARTS, BUT SHOW ONCE WE CLICK ON IT
- */
-
-
 /*
 *
+* *****************
 * GLOBAL VARIABLES
+* *****************
 *
 */
 
-
 /**
- * Set default state of which door is winner
- */
+ * ------------------
+ * DOOR READYSTATE(S)
+ * ------------------
+ * 
+ * If door is set to True,
+ * the program recognizes it as the "winning door".
+ * 
+ * If door is set to False,
+ * tje program recognizes it as the "losing door(s)"
+ *  
+*/
 let DoorOne = false;
 let DoorTwo = false;
 let DoorThree = false;
 
-
 /**
- * Set this var to the initial door 
- */
+ * ------------------------
+ * USER SELECTION VARIABLES
+ * ------------------------
+ * 
+ * DoorChosen is the initial option (door) that the user 
+ * chooses when presented with all the doors (1,2,3).
+ * 
+ * ifChange is the last available result at the end of the program.
+ * The user chooses one of the three doors,
+ * the program chooses one of the doors that the user didn't pick
+ * but is invalid,
+ * and ifChange, the the complimentary option left after running the above.
+*/
 let DoorChosen = 0;
 let ifChange = 0
 
 
 /**
  *
- * 
+ * ************************
  * INITIALIZATION FUNCTIONS
- *  
+ * ************************ 
  * 
+ * Below are the functions that shall play once the window has been loaded.
+ * This assume all HTML/CSS/JS has been loaded, 
+ * and the DOM has been activated.
+*/
+
+/**
+ * -------------
+ * WINDOW ONLOAD
+ * -------------
+ *  
+ * Below are the functions that shall play once the window has been loaded.
+ * This assume all HTML/CSS/JS has been loaded, 
+ * and the DOM has been activated.
  */
-
-
 window.onload = function(){
     console.log("Starting JavaScript Framework...");
 
@@ -51,20 +71,26 @@ window.onload = function(){
     console.log("Onload functions complete!\n");
 }
 
-
 /**
- * Randomize what doors will contain a donkey
- */
+ * ----------------
+ * INIT GAME PARAMS
+ * ----------------
+ * 
+ * Below are two functions:
+ * 
+ * getRndInt is a building block of a function to 
+ * figure out (randomly) which number to pick (from 1 to 3)
+ * 
+ * SetGameParams are the "rules of the game".
+ * It uses the building block function to figure out which
+ * one of the doors to make the "true" door,
+ * and set their respective READYSTATE.
+*/
 function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
 
-
-/**
- * Function to randomize door selection
- */
 function setGameParams(){
-
     /**
      * How to randomize:
      * -----------------
@@ -97,13 +123,13 @@ function setGameParams(){
 
 
 /**
+ * ***************************
+ * PROCESSES TO START THE GAME
+ * ***************************
  * 
- * 
- * STARTING THE GAME
- * 
- * 
- */
-
+ * Below are the functions needed to hide the current window,
+ * and display the next window.
+*/
 function gameStartTasks(){
     document.getElementById("window_screen_1").style.visibility = "visible"; // Remove introduction Div, and begin game.
 }
@@ -120,15 +146,17 @@ function backgroundTasksForGameStart(){
     console.log("Ending Window 1...");
 }
 
-/**
- * 
- * 
- * Window Screen 1: Instructions to play:
- * 
- * Purpose: After launching introduction, a new div will appear giving the user some 
- * directions on how the game will be played. This will be a text box for their information
- */
 
+/**
+ * **************************************
+ * Window Screen 1: Instructions to play:
+ * **************************************
+ * 
+ * After launching introduction (PROCESSES TO START THE GAME), a new div will appear giving the user some 
+ * directions on how the game will be played. This will be a text box for their information.
+ * 
+ * Then hide intro window, show Window Screen 2.
+ */
 function backgroundTasksForWindowScreen2(){
     console.log("Window 2 button clicked!");
 
@@ -140,17 +168,19 @@ function backgroundTasksForWindowScreen2(){
     console.log("Ending Window 2...");
 }
 
+
 /**
- * 
- * 
+ * ********************************************
  * Window Screen 2: User Selects initial option
+ * ********************************************
  * 
- * Purpose: There will be three options that the user is presented with.
- * After user clicks option, go to Window Screen 3
+ * After Window Screen 1, the user is confronted with three choices,
+ * Door 1, 2, and 3. 
+ * The user shall select a door,
+ * and this program will make a note of that via DoorChosen.
  * 
+ * Then, hide Window Screen 2, show Window Screen 3.
  */
-
-
 function backgroundTasksForWindowScreen3(){
     console.log("Window 3 button clicked!")
 
@@ -161,7 +191,6 @@ function backgroundTasksForWindowScreen3(){
 
     console.log("Ending Window 3...");
 }
-
 
 function userInitSelectsDoorOne(){
     console.log("User inititially has chosen Door One");
@@ -180,7 +209,6 @@ function userInitSelectsDoorOne(){
     backgroundTasksForWindowScreen3();
 }
 
-
 function userInitSelectsDoorTwo(){
     console.log("User inititially has chosen Door Two");
     console.log(DoorTwo);
@@ -197,7 +225,6 @@ function userInitSelectsDoorTwo(){
 
     backgroundTasksForWindowScreen3();
 }
-
 
 function userInitSelectsDoorThree(){
     console.log("User inititially has chosen Door Three");
@@ -218,20 +245,32 @@ function userInitSelectsDoorThree(){
 
 
 /**
+ * **********************************************
+ * Window Screen 3: User sees and confirms option
+ * **********************************************
  * 
- * 
- * Window Screen 3.A: User Selects second option
- * 
- * Purpose:  
- * 
+ * After the user clicks the second option, they get a confirmation screen
+ * that they picked 'door number x'.
  */
-
-
 function userInitOptionChosen(){
     console.log("Show user door that they chose...")
     document.getElementById("showOptionChosen").innerHTML = "You have chosen Door: " + DoorChosen;
 }
 
+/**
+ * ------------------------------------------------
+ * Window Screen 3a: The user confirms/changes door
+ * ------------------------------------------------
+ * 
+ * After the user selects the option, they shall see what one of the other doors
+ * are. This door is NOT the right answer, meaning the door they currently have,
+ * or the other door that was not opened is the correct answer.
+ * 
+ * Promptly to this, the user shall be given the task of choosing which option to
+ * pick, the door they currently have, or the other door.
+ * 
+ * Finally, hide Window Screen 3 (and/or Window Screen 3a), show Window Screen 4.
+ */
 function backgroundTasksForWindowScreen3A(){
     console.log("Window Button 3A clicked!");
 
@@ -250,9 +289,9 @@ function userClickToRevealFakeOption(){
      * Display the door image to the user and play a sound!
      * 
      * 
-     * ***********
+     * ++++++++++++++
      * Truth Table
-     * ***********
+     * ++++++++++++++
      * Door Clicked: 1
      * Right Answer: 1
      * SHOW DOOR 2/3
@@ -337,14 +376,15 @@ function userClickToRevealFakeOption(){
 
 
 /**
- * 
- * 
+ * ****************************
  * Window Screen 4: Show reults
+ * ****************************
  * 
- * Purpose:  
+ * After the user is done finalizing door selection,
+ * they shall be shown whether they won the prize (or not).
  * 
+ * Then, prompt the user to play again!
  */
-
 function backgroundTasksForWindowScreen4(){
     console.log("Window Button 4 clicked!");
 
