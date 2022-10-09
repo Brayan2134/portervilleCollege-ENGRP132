@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monty Hall Problem: JavaScript Edition</title>
+
+    <!--LIBS-->
+    <!--Bootstrap 5.2.1 CDN: CSS only-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+    <!--RESOURCES-->
+    <link rel="stylesheet" href="MontyHall.css"> 
+    <script src="MontyHall.js"></script>
+    <script type="module" src="JSON_DATA.json"></script>
+    
+
+</head>
+<body>
+    
+
+    <!--Introduction screen to game (STARTING GAME)-->
+    <div class="container" id="startGame">
+        <div class="row">
+            <div class="col-12">
+                <img class="col-12 text-center" src="Assets/Images/Lets_Make_A_Deal_logo.webp" alt="Let's Make A Deal Game Logo">
+                <br>
+
+                <!--Button to begin game!-->
+                <button id="init_start_button" onclick="backgroundTasksForGameStart()">Let's begin the game!</button>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!--User reads rules of the game (WINDOW SCREEN 1)-->
+    <div class="container" id="window_screen_1">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="text-center">Introduction to Game</h1>
+                <p>
+                    Thank you for choosing Brayan Quevedo Inc. to be your Monty Hall probability distributor.
+                    The purpose of this program (through the "Let's Make A Deal" game show) to demonstrate
+                    if the manner which you pick the game doors increases or decreases your odds 
+                    of winning the big prize! Every time you play this game, 
+                    data will be collected to show if the Monty Hall probability is getting closer to it's 
+                    expected values.
+                </p>
+                <h2 class="text-center">How to Play</h2>
+                <p>To play this game you shall do the following:
+                    <ul>
+                        <li>Pick a door.</li>
+                        <li>Be shown a door with a donkey.</li>
+                        <li>Have the opportunity to change or keep your first pick.</li>
+                        <li>Be shown the answers!</li>
+                    </ul>
+                </p>
+
+                <!--Button for WINDOW SCREEN 2-->
+                <button id="second_window_button" onclick="backgroundTasksForWindowScreen2()">Continue</button>
+            </div>
+        </div>
+    </div>
+
+
+    <!--User selects first option (WINDOW SCREEN 2)-->
+    <div class="container" id="window_screen_2">
+        <div class="row">
+
+            <h1 class="text-center">Choose a Door!</h1>
+
+            <img src="assets/Images/Lets_Make_A_Deal_Doors.jpeg" alt="Let's Make a Deal Doors">
+
+            <div class="col-4">
+                <button id="first_door_picked" onclick="userInitSelectsDoorOne()">Door 1</button>
+            </div>
+
+            <div class="col-4">
+                <button id="second_door_picked" onclick="userInitSelectsDoorTwo()">Door 2</button>
+            </div>
+
+            <div class="col-4">
+                <button id="third_door_picked" onclick="userInitSelectsDoorThree()">Door 3</button>
+            </div>
+
+        </div>
+    </div>
+
+    <!--User confirms option (WINDOW SCREEN 3)-->
+    <div class="container" id="window_screen_3" onclick="userInitOptionChosen()">
+        <div class="row">
+            <div class="col-12">
+                <h2 id="showOptionChosen">Click me to reveal what you have chosen</h2>
+            </div>
+            <div class="col-12">
+                <button id="move_to_window_3a" onclick="backgroundTasksForWindowScreen3A()">Continue</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="window_screen_3a">
+        <div class="row">
+            <div class="col-12" onclick="userClickToRevealFakeOption()">
+                <h2 class="text-center">Now Let's see what door is NOT IT:</h2>
+
+                <span id="showFakeOptionImage"></span>
+            </div>
+            <div class="col-12">
+                <h3>
+                    Do you wish to change your option ot keep it the same?
+                </h3>
+            </div>
+            <div class="col-6">
+                <button id="keep_answer" onclick="userKeepsAnswer()">Keep my answer!</button>
+            </div>
+            <div class="col-6">
+                <button id="change_answer_to_other_option" onclick="userChangeAnswer()">Change it to the other door!</button>
+            </div>
+        </div>
+    </div>
+
+
+    <!--User sees results (WINDOW SCREEN 4)-->
+    <div class="container" id="window_screen_4">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="text-center" id="showResults"></h1>
+            </div>
+            <div class="col-12">
+                <button onclick="window.location.reload()">Play again!</button>
+            </div>
+        </div>
+    </div>
+
+    <!--Audio Controls (user hidden) (refer css)-->
+    <audio src="Assets/Sounds/Lets_Make_A_Deal_intro_Music.mp3" id="startupSounds" loop="loop" autoplay="autoplay"></audio>
+
+
+</body>
+</html>

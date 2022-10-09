@@ -1,0 +1,41 @@
+
+/*
+* GLOBAL CSS STYLES FOR PROGRAM
+*/
+body{
+    background: rgb(30, 30, 30);
+    border-radius: 5px;
+}
+
+/* Use For Startup Music onPageLoad */
+#startupSounds{ 
+    display: none 
+}
+
+/* Style settings for window screen 1*/
+#window_screen_1{
+    visibility: hidden;
+    background-color: white;
+}
+
+
+#window_screen_2{
+    visibility: hidden;
+    background: white;
+}
+
+
+#window_screen_3{
+    visibility: hidden;
+    background: white;
+}
+
+#window_screen_3a{
+    visibility: hidden;
+    background: white;
+}
+
+#window_screen_4{
+    visibility: hidden;
+    background: white;
+}

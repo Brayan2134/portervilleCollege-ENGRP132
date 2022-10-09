@@ -1,3 +1,6 @@
+from memory_profiler import profile
+
+@profile
 def main():
     print("Right Riemann Sum Calculator")
     FUNCTION = input("Enter an equation (note raising to a power is ** NOT ^): ")
