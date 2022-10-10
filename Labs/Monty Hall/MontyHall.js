@@ -37,8 +37,20 @@ let DoorThree = false;
  * and ifChange, the the complimentary option left after running the above.
 */
 let DoorChosen = 0;
-let ifChange = 0
+let ifChange = 0;
 
+/**
+ * ---------------------
+ * SAVING TESTBENCH DATA
+ * ---------------------
+ * 
+ * The below variables are variables that can be read and written to the device
+ * as localCookies. 
+ * After each playthrough, the user data on winning or losing shall be written,
+ * either as a cookie if JavaScript is enabled, or as local browser cashe. 
+ */
+var wins = localStorage.getItem("win");
+var loss = localStorage.getItem("loss")
 
 /**
  *
@@ -50,6 +62,36 @@ let ifChange = 0
  * This assume all HTML/CSS/JS has been loaded, 
  * and the DOM has been activated.
 */
+
+/**
+ * ---------------------------
+ * SHOWING SESSION INFORMATION
+ * ---------------------------
+ */
+function showGameStats(){
+
+    /**
+     * Local variables to not violate
+     * localStorage cashe requests!
+    */
+
+    localWins = wins;
+    localLoss = loss;
+
+    if (localWins === null){
+        localWins = 0;
+    }
+    if (localLoss === null){
+        localLoss = 0;
+    }
+
+    console.log("***********************");
+    console.log("SUMMARY GAME STATISTICS");
+    console.log("***********************");
+    console.log("Wins: ", localWins);
+    console.log("Losses: ", localLoss);
+    console.log("Win percentage: ", ((localWins / localLoss) * 100), " %");
+}
 
 /**
  * -------------
@@ -66,7 +108,10 @@ window.onload = function(){
     document.getElementById("startupSounds").play(); // Start MP3 once window loads!
 
     console.log("Initializing Door Selections...");
+    
     setGameParams();
+
+    showGameStats();
 
     console.log("Onload functions complete!\n");
 }
@@ -119,6 +164,28 @@ function setGameParams(){
         console.log("ERROR: ATTEMPTED ASSIGNMENT OF DOOR NUMBER TO ONE THAT DOESN'T EXIST. CHECK SETGAMEPARAMS FUNCTION.");
     }
 
+}
+
+/**
+ * ---------------------------------
+ * SAVING VARIABLES TO BROWSER CASHE
+ * ---------------------------------
+ * 
+ * One of the requirements for this project 
+ * was to keep variable values between sessions.
+ * The manner this is done is through JavaScript localStorage, 
+ * where JS will make a memory address for a variable value, 
+ * and we can change it through every playthrough.
+ * 
+ * NOTE: IF YOU BEGIN A NEW SESSION THAT THE VALUE OF THE 
+ * 'win' AND 'loss' WILL BE NULL UNTIL ASSIGNED A VALUE
+ */
+function savedGameWins(x){
+    localStorage.setItem('win', x);
+}
+
+function savedGameLosses(x){
+    localStorage.setItem('loss', x);
 }
 
 
@@ -322,16 +389,22 @@ function userClickToRevealFakeOption(){
         if (DoorOne == true){ /** Can display 2 or 3 */
             document.getElementById("showFakeOptionImage").innerHTML = '<img class="text-center" src="Assets/Images/lets-make-a-deal-door-2.jpg" alt="Door Number 2"><p class="text-center">Door 2 is fake!</p></img>';
             console.log("USERCHANGE = 3");
+            console.log("If user switch: Probability is 0%");
+            console.log("If user stays: Probability is 100%");
             ifChange = 3;
         }
         else if (DoorTwo == true){ /** Can display 3 */
             document.getElementById("showFakeOptionImage").innerHTML = '<img class="text-center" src="Assets/Images/lets-make-a-deal-door-3.jpg" alt="Door Number 3"><p class="text-center">Door 3 is fake!</p></img>';
             console.log("USERCHANGE = 2");
+            console.log("If user switch: Probability is 100%");
+            console.log("If user stays: Probability is 0%");
             ifChange = 2;
         }
         else{ /** Can display 2 */
             document.getElementById("showFakeOptionImage").innerHTML = '<img class="text-center" src="Assets/Images/lets-make-a-deal-door-2.jpg" alt="Door Number 2"><p class="text-center">Door 2 is fake!</p></img>';
             console.log("USERCHANGE = 3");
+            console.log("If user switch: Probability is 100%");
+            console.log("If user stays: Probability is 0%");
             ifChange = 3;
         }
     }
@@ -340,16 +413,22 @@ function userClickToRevealFakeOption(){
         if (DoorOne == true){ /** Can display 3 */
             document.getElementById("showFakeOptionImage").innerHTML = '<img class="text-center" src="Assets/Images/lets-make-a-deal-door-3.jpg" alt="Door Number 3"><p class="text-center">Door 3 is fake!</p></img>';
             console.log("USERCHANGE = 1");
+            console.log("If user switch: Probability is 0%");
+            console.log("If user stays: Probability is 100%");
             ifChange = 1;
         }
         else if (DoorTwo == true){ /** Can display 1 or 3 */
             document.getElementById("showFakeOptionImage").innerHTML = '<img class="text-center" src="Assets/Images/lets-make-a-deal-door-1.jpg" alt="Door Number 1"><p class="text-center">Door 1 is fake!</p></img>';
             console.log("USERCHANGE = 3");
+            console.log("If user switch: Probability is 0%");
+            console.log("If user stays: Probability is 100%");
             ifChange = 3;
         }
         else{ /** Can display 1 */
             document.getElementById("showFakeOptionImage").innerHTML = '<img class="text-center" src="Assets/Images/lets-make-a-deal-door-1.jpg" alt="Door Number 1"><p class="text-center">Door 1 is fake!</p></img>';
             console.log("USERCHANGE = 3");
+            console.log("If user switch: Probability is 100%");
+            console.log("If user stays: Probability is 0%");
             ifChange = 3;
         }
     }
@@ -358,16 +437,22 @@ function userClickToRevealFakeOption(){
         if (DoorOne == true){ /** Can display 2 */
             document.getElementById("showFakeOptionImage").innerHTML = '<img class="text-center" src="Assets/Images/lets-make-a-deal-door-2.jpg" alt="Door Number 2"><p class="text-center">Door 2 is fake!</p></img>';
             console.log("USERCHANGE = 1");
+            console.log("If user switch: Probability is 0%");
+            console.log("If user stays: Probability is 100%");
             ifChange = 1;
         }
         else if (DoorTwo == true){ /** Can display 1 */
             document.getElementById("showFakeOptionImage").innerHTML = '<img class="text-center" src="Assets/Images/lets-make-a-deal-door-1.jpg" alt="Door Number 1"><p class="text-center">Door 1 is fake!</p></img>';
             console.log("USERCHANGE = 2");
+            console.log("If user switch: Probability is 100%");
+            console.log("If user stays: Probability is 0%");
             ifChange = 2;
         }
         else{ /** Can display 1 or 2 */
             document.getElementById("showFakeOptionImage").innerHTML = '<img class="text-center" src="Assets/Images/lets-make-a-deal-door-2.jpg" alt="Door Number 2"><p class="text-center">Door 2 is fake!</p></img>';
             console.log("USERCHANGE = 1");
+            console.log("If user switch: Probability is 0%");
+            console.log("If user stays: Probability is 100%");
             ifChange = 1;
         }
     }
@@ -400,15 +485,23 @@ function checkForWinner(){
     /**Internal check to see if user got it right */
     if (DoorChosen == 1 && DoorOne == true){
         console.log("USER WON!");
+        wins = parseInt(wins) + 1;
+        savedGameWins(wins);
     }
     else if (DoorChosen == 2 && DoorTwo == true){
         console.log("USER WON!");
+        wins = parseInt(wins) + 1;
+        savedGameWins(wins);
     }
     else if (DoorChosen == 3 && DoorThree == true){
         console.log("USER WON!");
+        wins = parseInt(wins) + 1;
+        savedGameWins(wins);
     }
     else{
         console.log("User lost");
+        loss = parseInt(loss) + 1;
+        savedGameLosses(loss);
     }
 }
 
