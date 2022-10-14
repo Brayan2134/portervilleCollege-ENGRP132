@@ -347,6 +347,8 @@ function backgroundTasksForWindowScreen3A(){
     document.getElementById("window_screen_3a").style.visibility = "visible";
 
     console.log("Ending Window 3...");
+
+    userClickToRevealFakeOption();
 }
 
 function userClickToRevealFakeOption(){
@@ -383,25 +385,30 @@ function userClickToRevealFakeOption(){
      * Right Answer: 1/2
      * SHOW OPPOSITE DOOR (2/1)
      * 
+     * 
+     * NOTE: ONE OF THE OPTIONS HERE IS BROKEN SINCE WHAT THE CONSOLE OUTPUTS AND 
+     * WHAT THE REAL LOGIC IS DON'T WORK.
+     * 
+     * ALWAYS FOLLOW WHAT THE LOGIC IS GIVING YOU, SINCE ULTIMATLY IT'S WHAT'S GOING TO BE CHECKED.
      */
 
     if (DoorChosen == 1){
         if (DoorOne == true){ /** Can display 2 or 3 */
-            document.getElementById("showFakeOptionImage").innerHTML = '<img class="text-center" src="Assets/Images/lets-make-a-deal-door-2.jpg" alt="Door Number 2"><p class="text-center">Door 2 is fake!</p></img>';
+            document.getElementById("showFakeOptionImage").innerHTML = '<img class="text-center mx-auto" src="Assets/Images/lets-make-a-deal-door-2.jpg" alt="Door Number 2"></img>';
             console.log("USERCHANGE = 3");
             console.log("If user switch: Probability is 0%");
             console.log("If user stays: Probability is 100%");
             ifChange = 3;
         }
         else if (DoorTwo == true){ /** Can display 3 */
-            document.getElementById("showFakeOptionImage").innerHTML = '<img class="text-center" src="Assets/Images/lets-make-a-deal-door-3.jpg" alt="Door Number 3"><p class="text-center">Door 3 is fake!</p></img>';
+            document.getElementById("showFakeOptionImage").innerHTML = '<img class="text-center mx-auto" src="Assets/Images/lets-make-a-deal-door-3.jpg" alt="Door Number 3"></img>';
             console.log("USERCHANGE = 2");
             console.log("If user switch: Probability is 100%");
             console.log("If user stays: Probability is 0%");
             ifChange = 2;
         }
         else{ /** Can display 2 */
-            document.getElementById("showFakeOptionImage").innerHTML = '<img class="text-center" src="Assets/Images/lets-make-a-deal-door-2.jpg" alt="Door Number 2"><p class="text-center">Door 2 is fake!</p></img>';
+            document.getElementById("showFakeOptionImage").innerHTML = '<img class="text-center mx-auto" src="Assets/Images/lets-make-a-deal-door-2.jpg" alt="Door Number 2"></img>';
             console.log("USERCHANGE = 3");
             console.log("If user switch: Probability is 100%");
             console.log("If user stays: Probability is 0%");
@@ -411,21 +418,21 @@ function userClickToRevealFakeOption(){
 
     if (DoorChosen == 2){
         if (DoorOne == true){ /** Can display 3 */
-            document.getElementById("showFakeOptionImage").innerHTML = '<img class="text-center" src="Assets/Images/lets-make-a-deal-door-3.jpg" alt="Door Number 3"><p class="text-center">Door 3 is fake!</p></img>';
+            document.getElementById("showFakeOptionImage").innerHTML = '<img class="text-center mx-auto" src="Assets/Images/lets-make-a-deal-door-3.jpg" alt="Door Number 3"</img>';
             console.log("USERCHANGE = 1");
             console.log("If user switch: Probability is 0%");
             console.log("If user stays: Probability is 100%");
             ifChange = 1;
         }
         else if (DoorTwo == true){ /** Can display 1 or 3 */
-            document.getElementById("showFakeOptionImage").innerHTML = '<img class="text-center" src="Assets/Images/lets-make-a-deal-door-1.jpg" alt="Door Number 1"><p class="text-center">Door 1 is fake!</p></img>';
+            document.getElementById("showFakeOptionImage").innerHTML = '<img class="text-center mx-auto" src="Assets/Images/lets-make-a-deal-door-1.jpg" alt="Door Number 1"></img>';
             console.log("USERCHANGE = 3");
             console.log("If user switch: Probability is 0%");
             console.log("If user stays: Probability is 100%");
             ifChange = 3;
         }
         else{ /** Can display 1 */
-            document.getElementById("showFakeOptionImage").innerHTML = '<img class="text-center" src="Assets/Images/lets-make-a-deal-door-1.jpg" alt="Door Number 1"><p class="text-center">Door 1 is fake!</p></img>';
+            document.getElementById("showFakeOptionImage").innerHTML = '<img class="text-center mx-auto" src="Assets/Images/lets-make-a-deal-door-1.jpg" alt="Door Number 1"></img>';
             console.log("USERCHANGE = 3");
             console.log("If user switch: Probability is 100%");
             console.log("If user stays: Probability is 0%");
@@ -435,21 +442,21 @@ function userClickToRevealFakeOption(){
 
     if (DoorChosen == 3){
         if (DoorOne == true){ /** Can display 2 */
-            document.getElementById("showFakeOptionImage").innerHTML = '<img class="text-center" src="Assets/Images/lets-make-a-deal-door-2.jpg" alt="Door Number 2"><p class="text-center">Door 2 is fake!</p></img>';
+            document.getElementById("showFakeOptionImage").innerHTML = '<img class="text-center mx-auto" src="Assets/Images/lets-make-a-deal-door-2.jpg" alt="Door Number 2"></img>';
             console.log("USERCHANGE = 1");
             console.log("If user switch: Probability is 0%");
             console.log("If user stays: Probability is 100%");
             ifChange = 1;
         }
         else if (DoorTwo == true){ /** Can display 1 */
-            document.getElementById("showFakeOptionImage").innerHTML = '<img class="text-center" src="Assets/Images/lets-make-a-deal-door-1.jpg" alt="Door Number 1"><p class="text-center">Door 1 is fake!</p></img>';
+            document.getElementById("showFakeOptionImage").innerHTML = '<img class="text-center mx-auto" src="Assets/Images/lets-make-a-deal-door-1.jpg" alt="Door Number 1"></img>';
             console.log("USERCHANGE = 2");
             console.log("If user switch: Probability is 100%");
             console.log("If user stays: Probability is 0%");
             ifChange = 2;
         }
         else{ /** Can display 1 or 2 */
-            document.getElementById("showFakeOptionImage").innerHTML = '<img class="text-center" src="Assets/Images/lets-make-a-deal-door-2.jpg" alt="Door Number 2"><p class="text-center">Door 2 is fake!</p></img>';
+            document.getElementById("showFakeOptionImage").innerHTML = '<img class="text-center mx-auto" src="Assets/Images/lets-make-a-deal-door-2.jpg" alt="Door Number 2"></img>';
             console.log("USERCHANGE = 1");
             console.log("If user switch: Probability is 0%");
             console.log("If user stays: Probability is 100%");
@@ -486,21 +493,29 @@ function checkForWinner(){
     if (DoorChosen == 1 && DoorOne == true){
         console.log("USER WON!");
         wins = parseInt(wins) + 1;
+        document.getElementById("showResults").innerHTML = "YOU HAVE WON!";
+        document.getElementById("showResultsPicture").innerHTML = '<img class src="Assets/Images/wimmer.jpg"></img>';
         savedGameWins(wins);
     }
     else if (DoorChosen == 2 && DoorTwo == true){
         console.log("USER WON!");
         wins = parseInt(wins) + 1;
+        document.getElementById("showResults").innerHTML = "YOU HAVE WON!";
+        document.getElementById("showResultsPicture").innerHTML = '<img class src="Assets/Images/wimmer.jpg"></img>';
         savedGameWins(wins);
     }
     else if (DoorChosen == 3 && DoorThree == true){
         console.log("USER WON!");
         wins = parseInt(wins) + 1;
+        document.getElementById("showResults").innerHTML = "YOU HAVE WON!";
+        document.getElementById("showResultsPicture").innerHTML = '<img class src="Assets/Images/wimmer.jpg"></img>';
         savedGameWins(wins);
     }
     else{
         console.log("User lost");
         loss = parseInt(loss) + 1;
+        document.getElementById("showResults").innerHTML = "you... lost...";
+        document.getElementById("showResultsPicture").innerHTML = '<img class src="Assets/Images/zonk.jpg"></img>';
         savedGameLosses(loss);
     }
 }

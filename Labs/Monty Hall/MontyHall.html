@@ -27,7 +27,7 @@
                 <br>
 
                 <!--Button to begin game!-->
-                <button id="init_start_button" onclick="backgroundTasksForGameStart()">Let's begin the game!</button>
+                <button class="button-aes" id="init_start_button" onclick="backgroundTasksForGameStart()">Let's begin the game!</button>
 
             </div>
         </div>
@@ -58,7 +58,7 @@
                 </p>
 
                 <!--Button for WINDOW SCREEN 2-->
-                <button id="second_window_button" onclick="backgroundTasksForWindowScreen2()">Continue</button>
+                <button class="button-aes" id="second_window_button" onclick="backgroundTasksForWindowScreen2()">Continue</button>
             </div>
         </div>
     </div>
@@ -73,15 +73,15 @@
             <img src="assets/Images/Lets_Make_A_Deal_Doors.jpeg" alt="Let's Make a Deal Doors">
 
             <div class="col-4">
-                <button id="first_door_picked" onclick="userInitSelectsDoorOne()">Door 1</button>
+                <button class="button-aes" id="first_door_picked" onclick="userInitSelectsDoorOne()">Door 1</button>
             </div>
 
             <div class="col-4">
-                <button id="second_door_picked" onclick="userInitSelectsDoorTwo()">Door 2</button>
+                <button class="button-aes" id="second_door_picked" onclick="userInitSelectsDoorTwo()">Door 2</button>
             </div>
 
             <div class="col-4">
-                <button id="third_door_picked" onclick="userInitSelectsDoorThree()">Door 3</button>
+                <button class="button-aes" id="third_door_picked" onclick="userInitSelectsDoorThree()">Door 3</button>
             </div>
 
         </div>
@@ -91,10 +91,10 @@
     <div class="container" id="window_screen_3" onclick="userInitOptionChosen()">
         <div class="row">
             <div class="col-12">
-                <h2 id="showOptionChosen">Click me to reveal what you have chosen</h2>
+                <h2 id="showOptionChosen">Click me to reveal what you have chosen (if you want?)</h2>
             </div>
             <div class="col-12">
-                <button id="move_to_window_3a" onclick="backgroundTasksForWindowScreen3A()">Continue</button>
+                <button class="button-aes" id="move_to_window_3a" onclick="backgroundTasksForWindowScreen3A()">Continue</button>
             </div>
         </div>
     </div>
@@ -103,19 +103,20 @@
         <div class="row">
             <div class="col-12" onclick="userClickToRevealFakeOption()">
                 <h2 class="text-center">Now Let's see what door is NOT IT:</h2>
-
-                <span id="showFakeOptionImage"></span>
+                <div class="text-center mt-1 mb-0">
+                    <span class="mx-auto" id="showFakeOptionImage"></span>
+                </div>
             </div>
             <div class="col-12">
                 <h3>
-                    Do you wish to change your option ot keep it the same?
+                    Do you wish to change your option or keep it the same?
                 </h3>
             </div>
             <div class="col-6">
-                <button id="keep_answer" onclick="userKeepsAnswer()">Keep my answer!</button>
+                <button class="button-aes" id="keep_answer" onclick="userKeepsAnswer()">Keep my answer!</button>
             </div>
             <div class="col-6">
-                <button id="change_answer_to_other_option" onclick="userChangeAnswer()">Change it to the other door!</button>
+                <button class="button-aes" id="change_answer_to_other_option" onclick="userChangeAnswer()">Change it to the other door!</button>
             </div>
         </div>
     </div>
@@ -124,11 +125,12 @@
     <!--User sees results (WINDOW SCREEN 4)-->
     <div class="container" id="window_screen_4">
         <div class="row">
-            <div class="col-12">
-                <h1 class="text-center" id="showResults"></h1>
+            <div class="col-12 text-center">
+                <h1 id="showResults"></h1>
+                <span id="showResultsPicture"></span>
             </div>
             <div class="col-12">
-                <button onclick="window.location.reload()">Play again!</button>
+                <button class="button-aes" onclick="window.location.reload()">Play again!</button>
             </div>
         </div>
     </div>
