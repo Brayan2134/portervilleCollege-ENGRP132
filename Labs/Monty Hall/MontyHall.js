@@ -49,9 +49,21 @@ let ifChange = 0;
  * After each playthrough, the user data on winning or losing shall be written,
  * either as a cookie if JavaScript is enabled, or as local browser cashe. 
  */
-var wins = sessionStorage.getItem("win");
-var loss = sessionStorage.getItem("loss");
-var total = sessionStorage.getItem("total");
+var wins = localStorage.getItem("win");
+var loss = localStorage.getItem("loss");
+var total = localStorage.getItem("total");
+
+if (wins === null){
+    wins = 0;
+}
+
+if (loss === null){
+    loss = 0;
+}
+
+if (total === null){
+    total = 0
+}
 
 /**
  *
@@ -76,22 +88,12 @@ function showGameStats(){
      * localStorage cashe requests!
     */
 
-    localWins = wins;
-    localLoss = loss;
-
-    if ((localWins === null) || (localWins <= 0)){
-        localWins = 0;
-    }
-    if ((localLoss === null) || (localLoss <= 0)){
-        localLoss = 0;
-    }
-
     console.log("***********************");
     console.log("SUMMARY GAME STATISTICS");
     console.log("***********************");
-    console.log("Wins: ", localWins);
-    console.log("Losses: ", localLoss);
-    console.log("Win percentage: ", ((localWins / localLoss) * 100), " %");
+    console.log("Wins: ", wins);
+    console.log("Losses: ", loss);
+    console.log("Win percentage: ", ((wins / loss) * 100), " %");
     console.log("total: ", total);
 }
 
@@ -183,13 +185,13 @@ function setGameParams(){
  * 'win' AND 'loss' WILL BE NULL UNTIL ASSIGNED A VALUE
  */
 function savedGameWins(x){
-    sessionStorage.setItem('win', x);
-    sessionStorage.setItem('total', x);
+    localStorage.setItem('win', x);
+    localStorage.setItem('total', x);
 }
 
 function savedGameLosses(x){
-    sessionStorage.setItem('loss', x);
-    sessionStorage.setItem('total',x);
+    localStorage.setItem('loss', x);
+    localStorage.setItem('total',x);
 }
 
 
