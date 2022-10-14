@@ -1,3 +1,11 @@
+/**
+ * **************
+ * GENERAL NOTES:
+ * **************
+ * 
+ * ONLY WORKS ON CHROMIUM BROWSERS(IE, CHROME).
+ */
+
 /*
 *
 * *****************
@@ -94,7 +102,7 @@ function showGameStats(){
     console.log("Wins: ", wins);
     console.log("Losses: ", loss);
     console.log("Win percentage: ", ((wins / loss) * 100), " %");
-    console.log("total: ", total);
+    console.log("total games this session: ", total);
 }
 
 /**
