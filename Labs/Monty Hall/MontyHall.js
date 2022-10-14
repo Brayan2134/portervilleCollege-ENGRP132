@@ -109,8 +109,6 @@ function showGameStats(){
 window.onload = function(){
     console.log("Starting JavaScript Framework...");
 
-    document.getElementById("startupSounds").play(); // Start MP3 once window loads!
-
     console.log("Initializing Door Selections...");
     
     setGameParams();
@@ -119,6 +117,10 @@ window.onload = function(){
 
     console.log("Onload functions complete!\n");
 }
+
+window.addEventListener("click", function(event){
+    document.getElementById("startupSounds").play(); // Start MP3 once window loads!
+}, {once : true});
 
 /**
  * ----------------
