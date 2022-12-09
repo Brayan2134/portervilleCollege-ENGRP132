@@ -419,15 +419,15 @@ function userClickToRevealFakeOption(){
         else if (DoorTwo == true){ /** Can display 3 */
             document.getElementById("showFakeOptionImage").innerHTML = '<img class="text-center mx-auto" src="Assets/Images/lets-make-a-deal-door-3.jpg" alt="Door Number 3"></img>';
             console.log("USERCHANGE = 2");
-            console.log("If user switch: Probability is 100%");
-            console.log("If user stays: Probability is 0%");
+            console.log("If user switch: Probability is 66.6666%");
+            console.log("If user stays: Probability is 33.3333%");
             ifChange = 2;
         }
         else{ /** Can display 2 */
             document.getElementById("showFakeOptionImage").innerHTML = '<img class="text-center mx-auto" src="Assets/Images/lets-make-a-deal-door-2.jpg" alt="Door Number 2"></img>';
             console.log("USERCHANGE = 3");
-            console.log("If user switch: Probability is 100%");
-            console.log("If user stays: Probability is 0%");
+            console.log("If user switch: Probability is 66.6666%");
+            console.log("If user stays: Probability is 33.3333%");
             ifChange = 3;
         }
     }
@@ -436,8 +436,8 @@ function userClickToRevealFakeOption(){
         if (DoorOne == true){ /** Can display 3 */
             document.getElementById("showFakeOptionImage").innerHTML = '<img class="text-center mx-auto" src="Assets/Images/lets-make-a-deal-door-3.jpg" alt="Door Number 3"</img>';
             console.log("USERCHANGE = 1");
-            console.log("If user switch: Probability is 0%");
-            console.log("If user stays: Probability is 100%");
+            console.log("If user switch: Probability is 66.6666%");
+            console.log("If user stays: Probability is 33.3333%");
             ifChange = 1;
         }
         else if (DoorTwo == true){ /** Can display 1 or 3 */
@@ -450,8 +450,8 @@ function userClickToRevealFakeOption(){
         else{ /** Can display 1 */
             document.getElementById("showFakeOptionImage").innerHTML = '<img class="text-center mx-auto" src="Assets/Images/lets-make-a-deal-door-1.jpg" alt="Door Number 1"></img>';
             console.log("USERCHANGE = 3");
-            console.log("If user switch: Probability is 100%");
-            console.log("If user stays: Probability is 0%");
+            console.log("If user switch: Probability is 66.6666%");
+            console.log("If user stays: Probability is 33.3333%");
             ifChange = 3;
         }
     }
@@ -460,15 +460,15 @@ function userClickToRevealFakeOption(){
         if (DoorOne == true){ /** Can display 2 */
             document.getElementById("showFakeOptionImage").innerHTML = '<img class="text-center mx-auto" src="Assets/Images/lets-make-a-deal-door-2.jpg" alt="Door Number 2"></img>';
             console.log("USERCHANGE = 1");
-            console.log("If user switch: Probability is 0%");
-            console.log("If user stays: Probability is 100%");
+            console.log("If user switch: Probability is 66.6666%");
+            console.log("If user stays: Probability is 33.3333%");
             ifChange = 1;
         }
         else if (DoorTwo == true){ /** Can display 1 */
             document.getElementById("showFakeOptionImage").innerHTML = '<img class="text-center mx-auto" src="Assets/Images/lets-make-a-deal-door-1.jpg" alt="Door Number 1"></img>';
             console.log("USERCHANGE = 2");
-            console.log("If user switch: Probability is 100%");
-            console.log("If user stays: Probability is 0%");
+            console.log("If user switch: Probability is 66.6666%");
+            console.log("If user stays: Probability is 33.3333%");
             ifChange = 2;
         }
         else{ /** Can display 1 or 2 */
